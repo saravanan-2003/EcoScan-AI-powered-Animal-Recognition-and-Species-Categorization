@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Animal Detection System in Video Frames</title>
-  <link rel="stylesheet" href="style.css">
+<!--   <link rel="stylesheet" href="style.css"> -->
   <style>
     /* Style the file upload form */
     form {
@@ -12,6 +12,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+    }
+    .camera-window {
+      display: none;
+      width: 700px;
+      height: 500px;
+      max-width: 100%;
+      max-height: 100%;
+      border: 2px solid rgb(0, 0, 0);
     }
     input[type="file"] {
       display: none;
@@ -32,7 +40,7 @@
       padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
-      margin-bottom: px;
+      margin-bottom: 10px;
     }
     .button:hover {
       background-color: #3e8e41;
@@ -42,14 +50,14 @@
     .video-container {
       margin-top: -250px;
       display: flex;
-      justify-content: center;
+      justify-content: right;
     }
     .video {
       width: 700px;
-      height: 400px;
+      height: 500px;
       max-width: 100%;
       max-height: 100%;
-      border: 2px solid rgb(255, 7, 7);
+      border: 2px solid rgb(0, 0, 0);
     }
   </style>
 </head>
@@ -57,25 +65,24 @@
   <style>
     body {
       font-family: 'Courier New', monospace;
-      background-color: #e0fde0;
-      /* background-image: url("sim.jpg"); */
+      background-color: rgb(241, 182, 73);
+
       background-image: url("{{ url_for('static', filename='s.jpg') }}");
-      background-repeat: repeat;
+      background-repeat: no-repeat;
       background-size: cover;
       background-position: 0 -200px;
     }
   </style>
 
-  <h1 style="text-align: center;"><i>EcoScan: AI-powered Animal Recognition and Species Categorization
-  </i></h1>
+  <h1 style="text-align: center;"><i>EcoScan: AI-powered Animal Recognition and Species Categorization</i></h1>
 
   <form method="POST" enctype="multipart/form-data">
     <label for="file-upload" class="button">Select a file</label>
     <input id="file-upload" type="file" name="file" onchange="document.getElementById('selected-file-name').innerHTML = this.files[0].name;">
     <div id="selected-file-name"></div>
     <button type="submit" class="button">Upload</button>
+
   </form>
-  
 
   <!-- Add a button to capture video from the camera -->
   <form method="POST">
