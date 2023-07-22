@@ -83,13 +83,14 @@
     <button type="submit" class="button">Capture from Camera</button>
     <input type="hidden" name="stop" value="true">
   </form>
+  <form action="/stop" method="POST">
+    <button type="submit" class="button1" >Stop</button>
+  </form>
   {% if file_path %}
   <div class="video-container">
     <img src="/video_feed?file={{ file_path }}" class="video">
   </div>
-  <form action="/stop" method="POST">
-    <button type="submit" class="button1" >Stop</button>
-  </form>
+  
   {% endif %}
 
 
